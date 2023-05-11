@@ -6,10 +6,25 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^0.38.6",
+    "@nuxtjs/tailwindcss": "^6.6.8",
+    "@tailwindcss/forms": "^0.5.3",
     "@types/node": "^18",
-    "nuxt": "^3.4.3"
+    "eslint": "^8.40.0",
+    "lint-staged": "^13.2.2",
+    "nuxt": "^3.4.3",
+    "simple-git-hooks": "^2.8.1",
+    "typescript": "^5.0.4"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
   }
 }
